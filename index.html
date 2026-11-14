@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bernardo Mattos — Pintor</title>
+  <meta name="description" content="Portafolio de Bernardo Mattos, pintor profesional. Obras originales en óleo y acrílico sobre lienzo. Compra o cotiza directamente por WhatsApp.">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bernardo Mattos — Pintor">
+  <meta property="og:description" content="Obras originales en óleo y acrílico sobre lienzo.">
+  <!-- Al publicar el sitio, usa aquí la URL completa de la imagen (https://tu-dominio.com/img/...) -->
+  <meta property="og:image" content="img/obras/obra-01.jpg">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Ctext x='16' y='22.5' font-family='Georgia,serif' font-size='16' fill='%23fff' text-anchor='middle'%3EBM%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#obras">Saltar al contenido</a>
+
+  <header class="site-header">
+    <a class="brand" href="#inicio">Bernardo Mattos</a>
+    <nav aria-label="Principal">
+      <a href="#obras">Obras</a>
+      <a href="#artista">Artista</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- INICIO · foto del artista -->
+    <section class="hero" id="inicio">
+      <div class="hero__text">
+        <p class="eyebrow">Pintor</p>
+        <h1>Bernardo <em>Mattos</em></h1>
+        <p class="hero__lead">Pintura original en óleo y acrílico sobre lienzo. Color, luz y gesto.</p>
+        <a class="btn btn--solid" href="#obras">Ver obras</a>
+      </div>
+
+      <!-- FOTO DE EJEMPLO (dominio público). Reemplaza img/artista.jpg por la foto del artista,
+           actualiza el alt y borra el <figcaption>. -->
+      <figure class="hero__portrait">
+        <img src="img/artista.jpg" alt="Retrato fotográfico del pintor Claude Monet, 1899" width="960" height="1280">
+        <figcaption>Claude Monet, 1899 · Foto: Nadar</figcaption>
+      </figure>
+    </section>
+
+    <!-- PORTAFOLIO · las tarjetas se generan desde js/datos.js -->
+    <section class="section" id="obras">
+      <div class="section__head">
+        <h2>Obras</h2>
+        <p class="section__note" id="obras-note">Toca una obra para ver los detalles.</p>
+      </div>
+      <div class="grid" id="grid"></div>
+      <noscript><p>Activa JavaScript para ver el portafolio.</p></noscript>
+    </section>
+
+    <!-- EL ARTISTA · texto de ejemplo, edítalo -->
+    <section class="section about" id="artista">
+      <div class="section__head">
+        <h2>El artista</h2>
+      </div>
+      <div class="about__grid">
+        <p class="about__quote">“Pinto para detener un instante de luz.”</p>
+        <div class="about__text">
+          <p>Soy pintor profesional. Trabajo el óleo y el acrílico sobre lienzo, buscando que cada obra capture un instante de color y de luz.</p>
+          <p>Cada pieza es original y está firmada. También realizo obras por encargo, pensadas para el espacio y la historia de quien las recibe.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- CONTACTO -->
+  <section class="contact" id="contacto">
+    <div class="contact__inner">
+      <p class="eyebrow">Encargos</p>
+      <h2>¿Buscas una obra a medida?</h2>
+      <p>Cuéntame tu idea, el espacio y las medidas. Te respondo personalmente por WhatsApp con una propuesta.</p>
+      <a class="btn btn--light" id="wa-general" href="#contacto" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+    <footer class="footer">
+      <span>© <span id="year">2026</span> Bernardo Mattos</span>
+      <a href="#inicio">Volver arriba ↑</a>
+    </footer>
+  </section>
+
+  <!-- Detalle de obra -->
+  <dialog class="modal" id="modal" aria-labelledby="m-title">
+    <button class="modal__close" type="button" aria-label="Cerrar" data-close>
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+    </button>
+
+    <div class="modal__body">
+      <div class="modal__media" id="m-media">
+        <img id="m-img" alt="">
+        <button class="modal__nav modal__nav--prev" type="button" aria-label="Obra anterior" data-prev>
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M11 2L4 9l7 7" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+        </button>
+        <button class="modal__nav modal__nav--next" type="button" aria-label="Obra siguiente" data-next>
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M7 2l7 7-7 7" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+        </button>
+      </div>
+
+      <div class="modal__info">
+        <p class="eyebrow" id="m-status"></p>
+        <h3 id="m-title"></h3>
+        <dl class="specs">
+          <dt id="m-autor-dt">Autor</dt><dd id="m-autor"></dd>
+          <dt>Año</dt><dd id="m-year"></dd>
+          <dt>Técnica</dt><dd id="m-tech"></dd>
+          <dt>Medidas</dt><dd id="m-size"></dd>
+        </dl>
+        <p class="modal__desc" id="m-desc"></p>
+
+        <div class="modal__cta">
+          <p class="price" id="m-price"></p>
+          <a class="btn btn--solid btn--block" id="m-cta" href="#" target="_blank" rel="noopener"></a>
+          <p class="fine">Se abrirá WhatsApp con un mensaje listo para enviar.</p>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="js/datos.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

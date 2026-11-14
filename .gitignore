@@ -1,0 +1,10 @@
+# Configuración local de la vista previa de Claude Code
+.claude/
+
+# Vercel
+.vercel/
+
+# Sistema
+.DS_Store
+Thumbs.db
+node_modules/
