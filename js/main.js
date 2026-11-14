@@ -139,7 +139,7 @@
     filtros.querySelectorAll(".filter").forEach((b) => {
       b.setAttribute("aria-pressed", String(b.dataset.id === id));
     });
-    $("#obras-note").textContent =
+    $("#galeria-note").textContent =
       `${visibles.length} ${visibles.length === 1 ? "obra" : "obras"} · Toca una para ver los detalles.`;
   }
 

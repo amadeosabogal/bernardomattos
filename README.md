@@ -9,7 +9,7 @@ Es un sitio estático: HTML, CSS y JavaScript, sin dependencias ni paso de compi
 ## Estructura
 
 ```
-index.html        Página única (portada, obras, artista, contacto)
+index.html        Página única (portada, galería, artista, contacto)
 css/styles.css    Estilos
 js/datos.js       Datos del sitio: número de WhatsApp y lista de obras  ← aquí se edita todo
 js/main.js        Lógica del portafolio y de la ventana de detalle
@@ -24,7 +24,7 @@ CREDITOS.md       Fuentes y licencias de las imágenes de ejemplo
 2. **Obras:** reemplaza las fotos de `img/obras/` y edita cada obra en `js/datos.js`
    (título, año, técnica, medidas, precio, estado). Borra la línea `autor` de cada una.
    Cada obra tiene una `categoria` (`oleos`, `acuarelas` o `dibujos`): con ella aparece en el
-   filtro **Todas · Óleos · Acuarelas · Dibujos** de la sección Obras. Puedes cambiar los
+   filtro **Todas · Óleos · Acuarelas · Dibujos** de la sección Galería. Puedes cambiar los
    nombres o agregar categorías en la lista `categorias` de `js/datos.js`; si una categoría
    no tiene obras, su filtro se oculta solo.
 3. **Artista:** reemplaza `img/artista.jpg` y borra el `<figcaption>` en `index.html`.
