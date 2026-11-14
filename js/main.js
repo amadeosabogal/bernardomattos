@@ -8,6 +8,7 @@
   const modal = $("#modal");
   const mImg = $("#m-img");
   const media = $("#m-media");
+  const filtros = $("#filtros");
 
   /* ---------- Helpers ---------- */
 
@@ -101,7 +102,7 @@
 
     const card = el(
       "button",
-      { class: "card", type: "button", "aria-haspopup": "dialog", "data-i": i },
+      { class: "card", type: "button", "aria-haspopup": "dialog", "data-i": i, "data-cat": o.categoria || "" },
       marco,
       el(
         "span",
@@ -118,12 +119,58 @@
     if (card) abrir(Number(card.dataset.i));
   });
 
+  /* ---------- Filtro por categoría (Óleos, Acuarelas, Dibujos) ---------- */
+
+  const categorias = (DATOS.categorias || []).filter((c) =>
+    obras.some((o) => o.categoria === c.id)
+  );
+  let filtro = "todas";
+
+  // Índices de las obras que se ven con el filtro actual.
+  const indicesVisibles = () =>
+    obras.map((_, i) => i).filter((i) => filtro === "todas" || obras[i].categoria === filtro);
+
+  function aplicarFiltro(id) {
+    filtro = id;
+    const visibles = indicesVisibles();
+    grid.querySelectorAll(".card").forEach((card) => {
+      card.hidden = !visibles.includes(Number(card.dataset.i));
+    });
+    filtros.querySelectorAll(".filter").forEach((b) => {
+      b.setAttribute("aria-pressed", String(b.dataset.id === id));
+    });
+    $("#obras-note").textContent =
+      `${visibles.length} ${visibles.length === 1 ? "obra" : "obras"} · Toca una para ver los detalles.`;
+  }
+
+  if (categorias.length) {
+    [{ id: "todas", nombre: "Todas" }, ...categorias].forEach((c) => {
+      const n = c.id === "todas" ? obras.length : obras.filter((o) => o.categoria === c.id).length;
+      filtros.append(
+        el(
+          "button",
+          { type: "button", class: "filter", "data-id": c.id, "aria-pressed": "false" },
+          c.nombre,
+          el("span", { class: "filter__n", text: String(n) })
+        )
+      );
+    });
+    filtros.addEventListener("click", (e) => {
+      const b = e.target.closest(".filter");
+      if (b) aplicarFiltro(b.dataset.id);
+    });
+  } else {
+    filtros.hidden = true;
+  }
+  aplicarFiltro("todas");
+
   /* ---------- Ventana de detalle ---------- */
 
   let actual = 0;
+  let lista = []; // obras visibles según el filtro al abrir la ventana
 
   function mostrar(i) {
-    actual = (i + obras.length) % obras.length;
+    actual = i;
     const o = obras[actual];
     const a = accion(o);
 
@@ -149,18 +196,25 @@
     modal.querySelector(".modal__info").scrollTop = 0;
   }
 
+  // Pasa a la obra anterior (-1) o siguiente (+1) dentro de las visibles.
+  function mover(delta) {
+    if (lista.length < 2) return;
+    const pos = lista.indexOf(actual);
+    mostrar(lista[(pos + delta + lista.length) % lista.length]);
+  }
+
   function abrir(i) {
+    lista = indicesVisibles();
+    const solo = lista.length < 2;
+    modal.querySelector("[data-prev]").hidden = solo;
+    modal.querySelector("[data-next]").hidden = solo;
     mostrar(i);
     if (!modal.open) modal.showModal();
   }
 
-  const unaSola = obras.length < 2;
-  modal.querySelector("[data-prev]").hidden = unaSola;
-  modal.querySelector("[data-next]").hidden = unaSola;
-
   modal.querySelector("[data-close]").addEventListener("click", () => modal.close());
-  modal.querySelector("[data-prev]").addEventListener("click", () => mostrar(actual - 1));
-  modal.querySelector("[data-next]").addEventListener("click", () => mostrar(actual + 1));
+  modal.querySelector("[data-prev]").addEventListener("click", () => mover(-1));
+  modal.querySelector("[data-next]").addEventListener("click", () => mover(1));
 
   // Clic fuera de la ventana (sobre el fondo oscuro) la cierra.
   modal.addEventListener("click", (e) => {
@@ -168,19 +222,18 @@
   });
 
   modal.addEventListener("keydown", (e) => {
-    if (unaSola) return;
-    if (e.key === "ArrowLeft") mostrar(actual - 1);
-    if (e.key === "ArrowRight") mostrar(actual + 1);
+    if (e.key === "ArrowLeft") mover(-1);
+    if (e.key === "ArrowRight") mover(1);
   });
 
   // Deslizar con el dedo sobre la imagen para cambiar de obra.
   let x0 = null;
   media.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive: true });
   media.addEventListener("touchend", (e) => {
-    if (x0 === null || unaSola) return;
+    if (x0 === null) return;
     const dx = e.changedTouches[0].clientX - x0;
     x0 = null;
-    if (Math.abs(dx) > 50) mostrar(actual + (dx < 0 ? 1 : -1));
+    if (Math.abs(dx) > 50) mover(dx < 0 ? 1 : -1);
   });
 
   /* ---------- Contacto general ---------- */

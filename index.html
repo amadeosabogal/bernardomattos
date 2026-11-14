@@ -52,10 +52,12 @@
 
     <!-- PORTAFOLIO · las tarjetas se generan desde js/datos.js -->
     <section class="section" id="obras">
-      <div class="section__head">
+      <div class="section__head section__head--tight">
         <h2>Obras</h2>
-        <p class="section__note" id="obras-note">Toca una obra para ver los detalles.</p>
+        <p class="section__note" id="obras-note" aria-live="polite">Toca una obra para ver los detalles.</p>
       </div>
+      <!-- Filtros: Todas · Óleos · Acuarelas · Dibujos (se generan desde js/datos.js) -->
+      <div class="filters" id="filtros" role="group" aria-label="Filtrar obras por técnica"></div>
       <div class="grid" id="grid"></div>
       <noscript><p>Activa JavaScript para ver el portafolio.</p></noscript>
     </section>

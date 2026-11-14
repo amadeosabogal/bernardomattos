@@ -23,6 +23,10 @@ CREDITOS.md       Fuentes y licencias de las imágenes de ejemplo
 1. **WhatsApp:** cambia `whatsapp` en `js/datos.js` por el número real (código de país, solo dígitos).
 2. **Obras:** reemplaza las fotos de `img/obras/` y edita cada obra en `js/datos.js`
    (título, año, técnica, medidas, precio, estado). Borra la línea `autor` de cada una.
+   Cada obra tiene una `categoria` (`oleos`, `acuarelas` o `dibujos`): con ella aparece en el
+   filtro **Todas · Óleos · Acuarelas · Dibujos** de la sección Obras. Puedes cambiar los
+   nombres o agregar categorías en la lista `categorias` de `js/datos.js`; si una categoría
+   no tiene obras, su filtro se oculta solo.
 3. **Artista:** reemplaza `img/artista.jpg` y borra el `<figcaption>` en `index.html`.
 4. **Textos:** edita la sección "El artista" en `index.html`.
 5. Las imágenes actuales son **de ejemplo** (dominio público); mira `CREDITOS.md`.

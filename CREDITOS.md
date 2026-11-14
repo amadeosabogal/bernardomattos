@@ -2,7 +2,7 @@
 
 Todas las imágenes de este sitio son **de ejemplo** y provienen de
 [Wikimedia Commons](https://commons.wikimedia.org). Cada archivo está marcado en Commons
-como **dominio público** (los autores murieron hace más de 100 años). Son versiones
+como **dominio público** (los autores murieron hace más de 100 años) o **CC0**. Son versiones
 reducidas (960–1280 px de ancho) pensadas para web.
 
 Cuando pongas las pinturas y la foto reales de Bernardo Mattos, reemplaza estos archivos
@@ -14,7 +14,9 @@ y borra este documento.
 |---|---|---|
 | `img/artista.jpg` | Claude Monet, 1899. Fotografía de Nadar | [Commons](https://commons.wikimedia.org/wiki/File:Claude_Monet_1899_Nadar_crop.jpg) |
 
-## Pinturas
+## Obras
+
+### Óleos
 
 | Archivo | Obra | Autor | Año | Fuente |
 |---|---|---|---|---|
@@ -27,6 +29,22 @@ y borra este documento.
 | `img/obras/obra-07.jpg` | ¿Cuándo te casarás? | Paul Gauguin | 1892 | [Commons](https://commons.wikimedia.org/wiki/File:Paul_Gauguin,_Nafea_Faa_Ipoipo%3F_1892,_oil_on_canvas,_101_x_77_cm.jpg) |
 | `img/obras/obra-08.jpg` | El almuerzo de los remeros | Pierre-Auguste Renoir | 1880–1881 | [Commons](https://commons.wikimedia.org/wiki/File:Pierre-Auguste_Renoir_-_Luncheon_of_the_Boating_Party_-_Google_Art_Project.jpg) |
 | `img/obras/obra-09.jpg` | El sueño | Henri Rousseau | 1910 | [Commons](https://commons.wikimedia.org/wiki/File:Henri_Rousseau_-_Le_R%C3%AAve_-_Google_Art_Project.jpg) |
+
+### Acuarelas
+
+| Archivo | Obra | Autor | Año | Fuente |
+|---|---|---|---|---|
+| `img/obras/obra-10.jpg` | Gran trozo de césped | Albrecht Dürer | 1503 | [Commons](https://commons.wikimedia.org/wiki/File:Albrecht_D%C3%BCrer_-_The_Large_Piece_of_Turf,_1503_-_Google_Art_Project.jpg) |
+| `img/obras/obra-11.jpg` | El bote azul | Winslow Homer | 1892 | [Commons](https://commons.wikimedia.org/wiki/File:Winslow_Homer_-_The_Blue_Boat_-_Google_Art_Project.jpg) |
+| `img/obras/obra-12.jpg` | El Rigi rojo | J. M. W. Turner | 1842 | [Commons](https://commons.wikimedia.org/wiki/File:J._M._W._Turner_-_The_Red_Rigi_-_Google_Art_Project.jpg) |
+
+### Dibujos
+
+| Archivo | Obra | Autor | Año | Fuente |
+|---|---|---|---|---|
+| `img/obras/obra-13.jpg` | El hombre de Vitruvio (recortado el borde de la foto) | Leonardo da Vinci | c. 1490 | [Commons](https://commons.wikimedia.org/wiki/File:Da_Vinci_Vitruve_Luc_Viatour.jpg) |
+| `img/obras/obra-14.jpg` | Manos en oración | Albrecht Dürer | 1508 | [Commons](https://commons.wikimedia.org/wiki/File:Albrecht_D%C3%BCrer_-_Praying_Hands,_1508_-_Google_Art_Project.jpg) |
+| `img/obras/obra-15.jpg` | Estudios para la Sibila Líbica | Miguel Ángel | c. 1510–1511 | [Commons](https://commons.wikimedia.org/wiki/File:Studies_for_the_Libyan_Sibyl_(recto);_Studies_for_the_Libyan_Sibyl_and_a_small_Sketch_for_a_Seated_Figure_(verso)_MET_DP826907.jpg) (CC0, The Met) |
 
 ## Importante
 
